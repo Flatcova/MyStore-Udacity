@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './components/product/product.component';
+import { TopProductsComponent } from './components/top-products/top-products.component';
 
 const routes: Routes = [
-  { path: '', component: ProductsComponent},
+  { path: '', component: TopProductsComponent},
   { path: 'cart', component: CartComponent},
+  { path: 'products', component: ProductsComponent },
   { path: 'product/:id', component: ProductComponent}
+
 ];
 
 @NgModule({

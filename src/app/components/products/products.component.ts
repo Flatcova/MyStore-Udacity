@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productsService.getProducts().subscribe(data => {this.allProducts = data
+    this.productsService.getAllProducts().subscribe(data => {this.allProducts = data
     console.log(this.allProducts);
     })
   }
