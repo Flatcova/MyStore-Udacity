@@ -8,12 +8,13 @@ import { Products } from 'src/app/types';
   styleUrls: ['./top-products.component.css']
 })
 export class TopProductsComponent implements OnInit {
-    allProducts: Products[] = [];
+    topProducts: Products[] = [];
+    type: string = 'top selled';
     constructor(private productsService: ProductsService) { }
 
     ngOnInit(): void {
-      this.productsService.getTopProducts().subscribe(data => {this.allProducts = data
-      console.log(this.allProducts);
+      this.productsService.getTopProducts().subscribe(data => {this.topProducts = data
+      console.log(this.topProducts);
       })
     }
 

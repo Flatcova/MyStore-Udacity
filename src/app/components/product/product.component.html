@@ -1,2 +1,18 @@
-<h1>{{product.name}}</h1>
-<h4>{{product.price}} Category: {{product.category}}</h4>
+<!-- <h1>{{product.name}}</h1>
+<h4>{{product.price}} Category: {{product.category}}</h4> -->
+    <div class="product__item">
+        <div class="product__item__pic set-bg">
+            <img src="assets/product/product-9.jpg" alt="">
+            <!-- PENDING ADD A IMAGE URL FOR THE PRODUCTS -->
+            <span *ngIf="type" class="label">{{type}} </span>
+            <ul class="product__hover">
+                <li><a><img src="assets/icon/heart.png" alt=""></a></li>
+                <!-- PENDING ADD LIKED FUNCTIONALITY -->
+            </ul>
+        </div>
+        <div class="product__item__text">
+            <h6>{{product.name}}</h6>
+            <a routerLink="/product/{{product.id}}" class="add-cart">+ Add To Cart</a>
+            <h5>{{product.price}}</h5>
+        </div>
+    </div>

@@ -3,6 +3,7 @@ export interface User {
     firstName: string;
     lastName: string;
     password: string;
+    
   };
 
   export interface Products {
@@ -10,6 +11,7 @@ export interface User {
     name: string;
     price: number;
     category: string;
+    selled: number;
   };
 
   export interface Order {
