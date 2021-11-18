@@ -8,6 +8,10 @@
 	background: #000000;
 	letter-spacing: 4px;
 }
+
+.err {
+	color: #e53637;
+}
 .product__details__pic {
 	text-align: center;
 	background: #f3f2ee;

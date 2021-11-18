@@ -9,7 +9,7 @@ import { Products } from 'src/app/types';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product:Products = {id: 0, name: '', category: '', price:0, selled: 0};
+  @Input() product:Products = {id: 0, name: '', category: '', price:'', selled: 0, url:'', description:''};
   @Input() type: string = '';
 
   constructor() { }

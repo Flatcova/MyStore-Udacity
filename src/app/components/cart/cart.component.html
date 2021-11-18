@@ -1,1 +1,79 @@
-<p>cart works!</p>
+<section class="shopping-cart spad">
+    <div *ngIf="items.length == 0" class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <img class="empty" src="assets/empty.png" alt="empty cart">
+            </div>
+            <div class="col-lg-4">
+                <div class="cart__total">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li>Subtotal <span>$ {{(subtotal).toFixed(2)}}</span></li>
+                        <li>Taxes: <span>$ {{(taxes).toFixed(2)}}</span></li>
+                        <li>Total <span>$ {{(total).toFixed(2)}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="items.length" class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items">
+                                <td class="product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <img src="assets/shop-details/thumb-1.png" alt="">
+                                    </div>
+                                    <div class="product__cart__item__text">
+                                        <h6>{{item.name}}</h6>
+                                        <h5>{{item.price}}</h5>
+                                    </div>
+                                </td>
+                                <td class="quantity__item">
+                                    <div class="quantity">
+                                        <div class="pro-qty-2">
+                                            <i (click)="update(item.id, -1)" class="fa fa-arrow-down"></i>
+                                            <input type="number" min=0 name="quantity" [(ngModel)]="item.quantity">
+                                            <i (click)="update(item.id, 1)" class="fa fa-arrow-up"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price">${{(item.total).toFixed(2)}}</td>
+                                <td class="cart__close"><i (click)="remove(item.id)" class="fa fa-close"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                            <a routerLink="/products">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart__total">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li>Subtotal <span>$ {{(subtotal).toFixed(2)}}</span></li>
+                        <li>Taxes: <span>$ {{(taxes).toFixed(2)}}</span></li>
+                        <li>Total <span>$ {{(total).toFixed(2)}}</span></li>
+                    </ul>
+                    <button class="primary-btn">Proceed to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

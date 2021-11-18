@@ -2,7 +2,7 @@
 <h4>{{product.price}} Category: {{product.category}}</h4> -->
     <div class="product__item">
         <div class="product__item__pic set-bg">
-            <img src="assets/product/product-9.jpg" alt="">
+            <a routerLink="/product/{{product.id}}"><img src="assets/product/product-9.jpg" alt=""></a>
             <!-- PENDING ADD A IMAGE URL FOR THE PRODUCTS -->
             <span *ngIf="type" class="label">{{type}} </span>
             <ul class="product__hover">
