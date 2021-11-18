@@ -3,16 +3,32 @@ export interface User {
     firstName: string;
     lastName: string;
     password: string;
-    
   };
 
   export interface Products {
     id: number;
     name: string;
-    price: number;
+    price: string;
     category: string;
     selled: number;
+    url: string;
+    description: string;
   };
+  export interface ShoppingItem {
+    id: number;
+    name: string;
+    price: string;
+    category: string;
+    quantity: number;
+    url: string;
+    description: string;
+    total: number;
+  };
+
+  export interface Alert {
+    type: string;
+    message: string;
+  }
 
   export interface Order {
     id: number;
