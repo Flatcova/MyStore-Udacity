@@ -2,6 +2,12 @@
 margin-bottom: 50px;
 } 
 
+.empty {
+	position: inherit;
+    width: 500px;
+    align-items: center;
+    margin-left: 150px;
+}
 .shopping__cart__table {
 	margin-bottom: 30px;
 }
@@ -226,4 +232,10 @@ margin-bottom: 50px;
 	color: #ffffff;
 	background: #000000;
 	letter-spacing: 4px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

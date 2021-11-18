@@ -11,6 +11,8 @@ import { ShoppingItem } from 'src/app/types';
 export class CartComponent implements OnInit {
   items: ShoppingItem[] = [];
   total: number = 0;
+  taxes: number = 0;
+  subtotal: number= 0;
   // item: ShoppingItem = {id: 0, name: '', category: '', price:0, url:'', description:'', quantity: 0};
   updated: boolean = false;
   
@@ -18,13 +20,30 @@ export class CartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
-    this.items = this.shoppingCartService.getItems();
-    this.items.forEach(element => {
-      this.total += element.total
-    });
+    this.updateValues()
   }
 
-  addToCart(item: ShoppingItem) {
-    const updated = this.shoppingCartService.addItem(item);
+  update(id: number, qty: number) {
+    this.shoppingCartService.updateItem(id, qty)
+    console.log(qty);
+    
+    this.updateValues()
+    console.log(this.items);
+  }
+
+  remove(id: number){
+    this.shoppingCartService.removeItem(id)
+    
+    this.updateValues()
+  }
+
+  updateValues() {
+    this.items = this.shoppingCartService.getItems();
+    this.subtotal = 0; this.taxes = 0; this.total = 0;
+    this.items.forEach(element => {
+      this.subtotal += element.total
+    });
+    this.taxes = this.subtotal * .0825
+    this.total = this.subtotal + this.taxes
   }
 }

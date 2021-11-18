@@ -20,7 +20,7 @@
                 <div class="header__nav__option">
                     <a routerLink="/cart"><img src="assets/icon/cart.png" alt="cart"> <span>{{cartItems}}</span></a> 
                     <!-- PENDING UPDATE CART ITEMS -->
-                    <div class="price">$0.00</div>
+                    <div class="price">${{(cartTotal).toFixed(2)}}</div>
                     <!-- PENDING SHOW ACUMULATIVE PRICE -->
                 </div>
             </div>
