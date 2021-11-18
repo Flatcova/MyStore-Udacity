@@ -13,6 +13,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { TopProductsComponent } from './components/top-products/top-products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductComponent,
     CartComponent,
     TopProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
