@@ -1,3 +1,23 @@
+.primary-btn {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 14px 30px;
+	color: #ffffff;
+	background: #000000;
+	letter-spacing: 4px;
+}
+
+.order {
+	margin: 50px;
+	text-align: center;
+}
+
+.order-image {
+	width: 250px;
+}
+
 .coupon__code {
 	color: #0d0d0d;
 	font-size: 14px;
@@ -31,6 +51,12 @@
 .checkout__input p {
 	color: #111111;
 	margin-bottom: 12px;
+}
+.checkout__input .err {
+	color: #e53637;
+}
+.err {
+	color: #e53637;
 }
 
 .checkout__input p span {

@@ -3,6 +3,9 @@
 	background-size: cover;
 	background-position: top center;
 }
+.set-bg img {
+	height: 100%;
+}
 .product__item {
 	overflow: hidden;
 	margin-bottom: 40px;
