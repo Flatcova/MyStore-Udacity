@@ -39,7 +39,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 npm i -g @angular/cli
 ```
 
-### Create Postgres DB with Docker
+### Run the Angular Frontend
 
 3. Once you already clone the repo and install the dependencies, it's time to run the project by simply writting the command: 
 
