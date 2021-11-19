@@ -34,15 +34,11 @@ export class ShoppingCartService {
 
   addItem(product: ShoppingItem) {
     const obj = this.cartList.findIndex((obj => obj.id == product.id))
-    console.log(obj);
-    
     if(obj >= 0){
       this.updateItem(product.id, product.quantity);
     }else{
       this.cartList.push(product);
     }
-    
-    console.log(this.cartList);
     return true
   }
 

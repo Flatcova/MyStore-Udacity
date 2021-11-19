@@ -13,7 +13,6 @@ export class CartComponent implements OnInit {
   total: number = 0;
   taxes: number = 0;
   subtotal: number= 0;
-  // item: ShoppingItem = {id: 0, name: '', category: '', price:0, url:'', description:'', quantity: 0};
   updated: boolean = false;
   
 
@@ -25,10 +24,7 @@ export class CartComponent implements OnInit {
 
   update(id: number, qty: number) {
     this.shoppingCartService.updateItem(id, qty)
-    console.log(qty);
-    
     this.updateValues()
-    console.log(this.items);
   }
 
   remove(id: number){

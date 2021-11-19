@@ -13,9 +13,7 @@ export class TopProductsComponent implements OnInit {
     constructor(private productsService: ProductsService) { }
 
     ngOnInit(): void {
-      this.productsService.getTopProducts().subscribe(data => {this.topProducts = data
-      console.log(this.topProducts);
-      })
+      this.productsService.getTopProducts().subscribe(data => this.topProducts = data)
     }
 
 }
