@@ -1,27 +1,55 @@
-# LjStore
+# Little Japan Store
+## Project Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+Welcome to My Store project. In this project we will see the continuation of my last Project Storefront-Backend but now I create the front=end with Angular for my store project, this Front-end just calls the same API that was created using Node.jS, Typescript, and Express before.
 
-## Development server
+The purpose of this project it's to create all the front functionality like displaying some products, updating the view when adding products to the cart and as well when removing some. Everything it's connected to a PostgresSQL Database on Docker but it only calls the a few API endpoints for the moment.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- `products` [GET] - Index 
+- `products/:id` [GET] - Show
+- `top-products` [GET] - [OPTIONAL] Top 5 most popular products 
 
-## Code scaffolding
+The next step it's to update the API as well as the front-end to have a loggin system working with Oauth2, as well as creating orders, and create a registration on PostgresSQL.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Instructions
 
-## Build
+For this Project to work first you will need to have the backend API on and working, you can download and follow the installation instructions on my Repo:
+https://github.com/Flatcova/StorefrontBackendAPI-Udacity.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Once you have everything set up and working, now we can start with the Angular Front-end.
+``(Notice: the API was changed so we can create create new Products without a Token and also by doing the initial db-migrate up, you will already have 7 products to test)``
 
-## Running unit tests
+### Instructions
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository and navigate to the downloaded folder.
 
-## Running end-to-end tests
+```
+git clone https://github.com/Flatcova/MyStore-Udacity.git
+cd MyStore-Udacity
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Intall all both devDependencies, and dependencies from package.json by just writing on your terminal
+```
+npm i
+```
 
-## Further help
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1. so if you haven't install Angular CLI use the link provided. or just write the next commad:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm i -g @angular/cli
+```
+
+### Create Postgres DB with Docker
+
+3. Once you already clone the repo and install the dependencies, it's time to run the project by simply writting the command: 
+
+```
+ng serve
+```
+
+Once you run this command, you will se that the project it's visible on port ``4200``, also don't forget that before this you need to have the Backend-API running
+Open your browser on ``localhost:4200`` to see if your project it's running correctly also you can see the console response when the project it's up and running.
+
+## HURRAYYY!!
+
+Well, that was much work for just initiating the project, but now it's time to see how it works. and please enjoy the website. I really hope you like it.
