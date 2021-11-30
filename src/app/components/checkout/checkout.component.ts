@@ -36,4 +36,11 @@ export class CheckoutComponent implements OnInit {
     this.orderFinish = true;
     this.shoppingCartService.cleanItems();
   }
+
+  nameChanged(data: string): void {
+    this.firstname = data.charAt(0).toUpperCase() + data.slice(1);
+  }
+  lastnameChanged(data: string): void {
+    this.lastname = data.charAt(0).toUpperCase() + data.slice(1);
+  }
 }

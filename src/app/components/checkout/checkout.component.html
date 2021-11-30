@@ -1,103 +1,170 @@
 <section class="checkout spad">
-    <div class="container">
-        <div *ngIf="orderFinish"  class="product__details__cart__option order">
-            <img class="order-image" src="assets/thanks.png" alt="">
-            <h3>Your order was Successful</h3>
-            <h6>Thank you {{firstname}} for purchising with us</h6>
-            <p>Please allow 3 to 6 bussiness days for shipping</p>
-            <button class="primary-btn" routerLink="/products">Go back to Products</button>
-        </div>
-        <div *ngIf="!orderFinish" class="checkout__form">
-            <form #form="ngForm" (ngSubmit)="checkout()">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <h6 class="checkout__title">Billing Details</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div *ngIf="firstName.invalid && firstName.dirty">
-                                        <p class="err">Please insert your name.</p> 
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text" required name="firstname" min="10" [(ngModel)]="firstname" #firstName="ngModel">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div *ngIf="lastName.invalid && lastName.dirty">
-                                        <p class="err">Please insert your last name.</p> 
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text" required name="lastname" [(ngModel)]="lastname" #lastName="ngModel">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <div *ngIf="add.invalid && add.dirty">
-                                    <p class="err">Please insert your address.</p> 
-                                </div>
-                                <p>Address<span>*</span></p>
-                                <input type="text" required name="address" [(ngModel)]="address" #add="ngModel" placeholder="Street Address" class="checkout__input__add">
-                            </div>
-                            <div class="checkout__input">
-                                <div *ngIf="cty.invalid && cty.dirty">
-                                    <p class="err">Please insert your city.</p> 
-                                </div>
-                                <p>Town/City<span>*</span></p>
-                                <input type="text" required name="city" [(ngModel)]="city" #cty="ngModel">
-                            </div>
-                            <div class="checkout__input">
-                                <div *ngIf="st.invalid && st.dirty">
-                                    <p class="err">Please insert your state.</p> 
-                                </div>
-                                <p>Country/State<span>*</span></p>
-                                <input type="text" required name="state" [(ngModel)]="state" #st="ngModel">
-                            </div>
-                            <div class="checkout__input">
-                                <div *ngIf="zipcode.invalid && zipcode.dirty">
-                                    <p class="err">Please insert your zip code.</p> 
-                                </div>
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text" required name="postalcode" [(ngModel)]="postalcode" #zipcode="ngModel">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div *ngIf="ph.invalid && ph.dirty">
-                                        <p class="err">Please insert your phone number.</p> 
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text"  required name="phone" [(ngModel)]="phone" #ph="ngModel">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div *ngIf="mail.invalid && mail.dirty">
-                                        <p class="err">Please insert your email.</p> 
-                                    </div>
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text" required name="email" [(ngModel)]="email" #mail="ngModel">
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="checkout__order">
-                            <h4 class="order__title">Your order</h4>
-                            <div class="checkout__order__products">Product <span>Total</span></div>
-                            <ul class="checkout__total__products">
-                                <li *ngFor="let item of items; let i = index">{{i+1}}. {{item.name}} <span>$ {{item.total}}</span></li>
-                            </ul>
-                            <ul class="checkout__total__all">
-                                <li>Subtotal <span>${{subtotal}}</span></li>
-                                <li>Taxes <span>${{(taxes).toFixed(2)}}</span></li>
-                                <li>Total <span>${{(total).toFixed(2)}}</span></li>
-                            </ul>
-                            <button type="submit" [disabled]="form.invalid" class="site-btn">PLACE ORDER</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+  <div class="container">
+    <div *ngIf="orderFinish" class="product__details__cart__option order">
+      <img class="order-image" src="assets/thanks.png" alt="" />
+      <h3>Your order was Successful</h3>
+      <h6>Thank you {{ firstname }} for purchising with us</h6>
+      <p>Please allow 3 to 6 bussiness days for shipping</p>
+      <button class="primary-btn" routerLink="/products">
+        Go back to Products
+      </button>
     </div>
+    <div *ngIf="!orderFinish" class="checkout__form">
+      <form #form="ngForm" (ngSubmit)="checkout()">
+        <div class="row">
+          <div class="col-lg-8 col-md-6">
+            <h6 class="checkout__title">Billing Details</h6>
+            <div class="row">
+              <div class="col-lg-6">
+                <div *ngIf="firstName.invalid && firstName.dirty">
+                  <p class="err">Please insert your name.</p>
+                </div>
+                <div class="checkout__input">
+                  <p>Fist Name<span>*</span></p>
+                  <input
+                    type="text"
+                    required
+                    name="firstname"
+                    min="10"
+                    [(ngModel)]="firstname"
+                    #firstName="ngModel"
+                    (ngModelChange)="nameChanged($event)"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div *ngIf="lastName.invalid && lastName.dirty">
+                  <p class="err">Please insert your last name.</p>
+                </div>
+                <div class="checkout__input">
+                  <p>Last Name<span>*</span></p>
+                  <input
+                    type="text"
+                    required
+                    name="lastname"
+                    [(ngModel)]="lastname"
+                    #lastName="ngModel"
+                    (ngModelChange)="lastnameChanged($event)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="checkout__input">
+              <div *ngIf="add.invalid && add.dirty">
+                <p class="err">Please insert your address.</p>
+              </div>
+              <p>Address<span>*</span></p>
+              <input
+                type="text"
+                required
+                name="address"
+                [(ngModel)]="address"
+                #add="ngModel"
+                placeholder="Street Address"
+                class="checkout__input__add"
+              />
+            </div>
+            <div class="checkout__input">
+              <div *ngIf="cty.invalid && cty.dirty">
+                <p class="err">Please insert your city.</p>
+              </div>
+              <p>Town/City<span>*</span></p>
+              <input
+                type="text"
+                required
+                name="city"
+                [(ngModel)]="city"
+                #cty="ngModel"
+              />
+            </div>
+            <div class="checkout__input">
+              <div *ngIf="st.invalid && st.dirty">
+                <p class="err">Please insert your state.</p>
+              </div>
+              <p>Country/State<span>*</span></p>
+              <input
+                type="text"
+                required
+                name="state"
+                [(ngModel)]="state"
+                #st="ngModel"
+              />
+            </div>
+            <div class="checkout__input">
+              <div *ngIf="zipcode.invalid && zipcode.dirty">
+                <p class="err">Please insert your zip code.</p>
+              </div>
+              <p>Postcode / ZIP<span>*</span></p>
+              <input
+                type="text"
+                required
+                name="postalcode"
+                [(ngModel)]="postalcode"
+                #zipcode="ngModel"
+              />
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div *ngIf="ph.invalid && ph.dirty">
+                  <p class="err">Please insert your phone number.</p>
+                </div>
+                <div class="checkout__input">
+                  <p>Phone<span>*</span></p>
+                  <input
+                    type="text"
+                    required
+                    name="phone"
+                    [(ngModel)]="phone"
+                    #ph="ngModel"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div *ngIf="mail.invalid && mail.dirty">
+                  <p class="err">Please insert your email.</p>
+                </div>
+                <div class="checkout__input">
+                  <p>Email<span>*</span></p>
+                  <input
+                    type="text"
+                    required
+                    name="email"
+                    [(ngModel)]="email"
+                    #mail="ngModel"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="checkout__order">
+              <h4 class="order__title">Your order</h4>
+              <div class="checkout__order__products">
+                Product <span>Total</span>
+              </div>
+              <ul class="checkout__total__products">
+                <li *ngFor="let item of items; let i = index">
+                  {{ i + 1 }}. {{ item.name }} <span>$ {{ item.total }}</span>
+                </li>
+              </ul>
+              <ul class="checkout__total__all">
+                <li>
+                  Subtotal <span>${{ subtotal }}</span>
+                </li>
+                <li>
+                  Taxes <span>${{ taxes.toFixed(2) }}</span>
+                </li>
+                <li>
+                  Total <span>${{ total.toFixed(2) }}</span>
+                </li>
+              </ul>
+              <button type="submit" [disabled]="form.invalid" class="site-btn">
+                PLACE ORDER
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
